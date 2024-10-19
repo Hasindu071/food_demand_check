@@ -11,13 +11,24 @@
             padding: 20px;
         }
 
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('vegetables.jpg'); /* Reference to the image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .result-box {
-            background-color: #f4f4f4;
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            display: inline-block;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
+            text-align: center;
         }
 
         .prediction-text {
@@ -40,12 +51,23 @@
         .back-btn:hover {
             background-color: #45a049;
         }
+
+        .info-text {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <div class="result-box">
-        <p class="prediction-text">Predicted demand: {{ prediction }} units</p>
-        <a href="/" class="back-btn">Go back to Form</a>
+    <div class="container">
+        <div class="result-box">
+            <h1>Food Demand Forecasting Result</h1>
+            <p class="prediction-text">Predicted demand: {{ prediction }} units</p>
+            <p class="info-text">You selected the cuisine: {{ cuisine }} and category: {{ category }}.</p>
+            <p class="info-text">For city code: {{ city_code }}, region code: {{ region_code }}.</p>
+            <a href="/" class="back-btn">Go back to Form</a>
+        </div>
     </div>
 </body>
 </html>
