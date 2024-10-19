@@ -34,6 +34,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            text-decoration: none;
         }
 
         .back-btn:hover {
@@ -43,7 +44,7 @@
 </head>
 <body>
     <div class="result-box">
-        <p class="prediction-text">{{ prediction }}</p>
+        <p class="prediction-text">Predicted demand: {{ prediction }} units</p>
         <a href="/" class="back-btn">Go back to Form</a>
     </div>
 </body>

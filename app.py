@@ -4,24 +4,24 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Renders the index.html page
+    # Render the index.html page
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        # This is where you can handle the prediction logic.
-        # For now, we'll just redirect to the result page as an example.
+        # Here you can add your prediction logic.
+        # For example, let's assume you're running a machine learning model to predict demand.
         
-        # Example: You can process the form data here (if any) and then call your model for prediction
-        
-        return redirect(url_for('result'))
+        # Dummy prediction logic (replace with your model's prediction):
+        predicted_demand = 1500  # Replace this with your actual prediction logic
+
+        # Pass the prediction to the result page
+        return render_template('result.html', prediction=predicted_demand)
 
 @app.route('/result')
 def result():
-    # Render a result page with a prediction message (modify this as per your need)
-    prediction = "The predicted demand is 1500 units."  # Example result (replace with actual prediction logic)
-    return render_template('result.html', prediction=prediction)
+    return render_template('result.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
