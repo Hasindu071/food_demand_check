@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 from flask import Flask, render_template, request
 
-app = Flask(name)
+app = Flask(__name__)
 
 # Load the trained prediction model (ensure the model is located at the specified path)
 model = joblib.load("models/demand_prediction_model.pkl")
@@ -46,5 +46,5 @@ def predict():
     # Render the result page with the prediction
     return render_template('result.html', prediction=predicted_demand)
 
-if name == 'main':
+if __name__ == 'main':
     app.run(debug=True)
