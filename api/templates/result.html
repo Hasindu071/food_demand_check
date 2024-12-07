@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Demand Forecasting Form</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('vegetables.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .predict-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        .predict-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1>Food Demand Forecasting</h1>
+            <form action="/predict" method="POST">
+                <!-- Homepage Featured dropdown -->
+                <label for="homepage">Homepage Featured:</label>
+                <select name="homepage" id="homepage">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <!-- Emailer for promotion dropdown -->
+                <label for="emailer">Emailer for Promotion:</label>
+                <select name="emailer" id="emailer">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <!-- Area of operation input -->
+                <label for="area">Enter the area of operation (km²):</label>
+                <input type="text" id="area" name="area" placeholder="Enter area">
+
+                <!-- Select cuisine dropdown -->
+                <label for="cuisine">Select the Cuisine:</label>
+                <select name="cuisine" id="cuisine">
+                    <option value="Sri Lankan">Sri Lankan</option>
+                    <option value="thai">Thai</option>
+                    <option value="italian">Italian</option>
+                    <option value="indian">Indian</option>
+                    <option value="chinese">Chinese</option>
+                </select>
+
+                <!-- City code input -->
+                <label for="city_code">Enter City Code:</label>
+                <input type="text" id="city_code" name="city_code" placeholder="Enter city code">
+
+                <!-- Region code input -->
+                <label for="region_code">Enter Region Code:</label>
+                <input type="text" id="region_code" name="region_code" placeholder="Enter region code">
+
+                <!-- Category dropdown -->
+                <label for="category">Category:</label>
+                <select name="category" id="category">
+                    <option value="beverages">Beverages</option>
+                    <option value="snacks">Snacks</option>
+                    <option value="main_dishes">Main Dishes</option>
+                    <option value="desserts">Desserts</option>
+                </select>
+
+                <!-- Predict button -->
+                <button type="submit" class="predict-btn">Predict</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
