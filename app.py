@@ -14,7 +14,7 @@ def index():
 # Route for the form page
 @app.route('/form')
 def form():
-    return render_template('result.html')
+    return render_template('form.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -44,7 +44,7 @@ def predict():
     predicted_demand = model.predict(input_data)[0]
 
     # Render the result page with the prediction
-    return render_template('result.html', prediction=predicted_demand)
+    return render_template('form.html', prediction=predicted_demand)
 
 if __name__ == 'main':
     app.run(debug=True)
