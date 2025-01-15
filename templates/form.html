@@ -76,53 +76,83 @@
         <div class="form-box">
             <h1>Food Demand Forecasting</h1>
             <form action="/predict" method="POST">
-                <!-- Homepage Featured dropdown -->
-                <label for="homepage">Homepage Featured:</label>
-                <select name="homepage" id="homepage">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+
+                <!--- Week input -->
+                <label for="week"> Week : </label>
+                <input type="text" id="week" name="week" placeholder="Week">
+
+                <!-- City code input -->
+                <label for="city_code"> City Code:</label>
+                <input type="number" id="city_code" name="city_code" placeholder="Enter city code">
+
+                <!-- Region code input -->
+                <label for="region_code"> Region Code:</label>
+                <input type="number" id="region_code" name="region_code" placeholder="Enter region code">
+
+                <!-- Area of operation input -->
+                <label for="area"> Area of operation (km²):</label>
+                <input type="number" id="area" name="area" placeholder="Enter area">
+
+                <!-- Category dropdown -->
+                <label for="category"> Category : </label>
+                <select name="category" id="category">
+                    <option value="Beverages">Beverages</option>
+                    <option value="Rice Bowl">Snacks</option>
+                    <option value="Starters">Main Dishes</option>
+                    <option value="Pasta">Desserts</option>
+                    <option value="Sandwich">Beverages</option>
+                    <option value="Biryani">Snacks</option>
+                    <option value="Extras">Main Dishes</option>
+                    <option value="Pizza">Desserts</option>
+                    <option value="Seafood">Beverages</option>
+                    <option value="Other Snacks">Snacks</option>
+                    <option value="Desert">Main Dishes</option>
+                    <option value="Salad">Desserts</option>
+                    <option value="Fish">Beverages</option>
+                    <option value="Soup">Snacks</option>
                 </select>
 
+                <!-- Checkout price input -->
+                <label for="checkoutPrice"> Checkout price:</label>
+                <input type="number" id="checkoutPrice" name="checkoutPrice" placeholder="Enter checkout price">
+
+                <!-- Base price input -->
+                <label for="basePrice"> Base price :</label>
+                <input type="number" id="basePrice" name="basePrice" placeholder="Enter base price">
+
                 <!-- Emailer for promotion dropdown -->
-                <label for="emailer">Emailer for Promotion:</label>
+                <label for="emailer"> Emailer for Promotion ? </label>
                 <select name="emailer" id="emailer">
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
 
-                <!-- Area of operation input -->
-                <label for="area">Enter the area of operation (km²):</label>
-                <input type="text" id="area" name="area" placeholder="Enter area">
-
-                <!-- Select cuisine dropdown -->
-                <label for="cuisine">Select the Cuisine:</label>
-                <select name="cuisine" id="cuisine">
-                    <option value="Sri Lankan">Sri Lankan</option>
-                    <option value="thai">Thai</option>
-                    <option value="italian">Italian</option>
-                    <option value="indian">Indian</option>
-                    <option value="chinese">Chinese</option>
+                <!-- Homepage Featured dropdown -->
+                <label for="homepage"> Homepage Featured ? </label>
+                <select name="homepage" id="homepage">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
                 </select>
 
-                <!-- City code input -->
-                <label for="city_code">Enter City Code:</label>
-                <input type="text" id="city_code" name="city_code" placeholder="Enter city code">
+                <!-- Select center type dropdown -->
+                <label for="center"> Center type:</label>
+                <select name="center" id="center">
+                    <option value="Type A">Sri Lankan</option>
+                    <option value="Type B">Thai</option>
+                    <option value="Type C">Italian</option>
+                </select>
 
-                <!-- Region code input -->
-                <label for="region_code">Enter Region Code:</label>
-                <input type="text" id="region_code" name="region_code" placeholder="Enter region code">
-
-                <!-- Category dropdown -->
-                <label for="category">Category:</label>
-                <select name="category" id="category">
-                    <option value="beverages">Beverages</option>
-                    <option value="snacks">Snacks</option>
-                    <option value="main_dishes">Main Dishes</option>
-                    <option value="desserts">Desserts</option>
+                <!-- Select cuisine dropdown -->
+                <label for="cuisine"> Cuisine:</label>
+                <select name="cuisine" id="cuisine">
+                    <option value="Cotinential">Sri Lankan</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Indian">Indian</option>
                 </select>
 
                 <!-- Predict button -->
-                <button type="submit" class="predict-btn">Predict</button>
+                <button type="submit" class="predict-btn">Predict the demand </button>
             </form>
         </div>
     </div>

@@ -19,13 +19,16 @@ def form():
 @app.route('/predict', methods=['POST'])
 def predict():
     # Collect form data
-    homepage = request.form['homepage']
-    emailer = request.form['emailer']
-    area = float(request.form['area'])
-    cuisine = request.form['cuisine']
     city_code = request.form['city_code']
     region_code = request.form['region_code']
+    area = float(request.form['area'])
     category = request.form['category']
+    checkout_price = request.form['checkout_price']
+    base_price = request.form['base_price']
+    emailer = request.form['emailer']
+    homepage = request.form['homepage']
+    center = float(request.form['center'])
+    cuisine = request.form['cuisine']
 
     # Convert categorical features into numerical representations (you can use encoding techniques like one-hot encoding)
     homepage_num = 1 if homepage == 'yes' else 0
