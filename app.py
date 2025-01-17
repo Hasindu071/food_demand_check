@@ -19,6 +19,7 @@ def form():
 @app.route('/predict', methods=['POST'])
 def predict():
     # Collect form data
+    week = request.form['week']
     city_code = request.form['city_code']
     region_code = request.form['region_code']
     area = float(request.form['area'])
@@ -30,18 +31,49 @@ def predict():
     center = float(request.form['center'])
     cuisine = request.form['cuisine']
 
+    price_diference  = (checkout_price - base_price)
+
     # Convert categorical features into numerical representations (you can use encoding techniques like one-hot encoding)
     homepage_num = 1 if homepage == 'yes' else 0
     emailer_num = 1 if emailer == 'yes' else 0
-    cuisine_map = {'Sri Lankan': 0, 'thai': 1, 'italian': 2, 'indian': 3, 'chinese': 4}
-    cuisine_num = cuisine_map.get(cuisine, 0)
-    category_map = {'beverages': 0, 'snacks': 1, 'main_dishes': 2, 'desserts': 3}
-    category_num = category_map.get(category, 0)
+
+    # get the cuisine type
+    Thai = 0
+    Italian = 0
+    Indian = 0
+    Continental = 0
+
+    if cuisine == 'Thai':
+        Thai = 1
+    elif cuisine == 'Italian':
+        Italian = 1
+    elif cuisine == 'Indian':
+        Indian = 1
+    elif cuisine == 'Continental':
+        Continental = 1
+
+    # get the center type
+    type_A = 0
+    type_B = 0
+    type_C = 0
+
+    if center == 'TYPE_A':
+        type_A = 1
+    elif center == 'TYPE_B':
+        type_B = 1
+    elif center == 'TYPE_C':
+        type_C = 1
 
     # Prepare the input data as a DataFrame (assuming the model accepts this structure)
     input_data = pd.DataFrame([[
-        homepage_num, emailer_num, area, cuisine_num, city_code, region_code, category_num
-    ]], columns=['homepage', 'emailer', 'area', 'cuisine', 'city_code', 'region_code', 'category'])
+        week, city_code,region_code, area,checkout_price,base_price, emailer_num,homepage_num,
+        type_A,type_B,type_C ,Continental, Indian, Italian , Thai , price_diference
+    ]],
+    columns=['week', 'city_code', 'region_code', 'op_area', 'category_0', 'category_1',
+    'category_2', 'category_3', 'checkout_price', 'base_price', 'emailer_for_promotion',
+    'homepage_featured', 'center_type_TYPE_A', 'center_type_TYPE_B', 'center_type_TYPE_C',
+    'cuisine_Continental', 'cuisine_Indian', 'cuisine_Italian', 'cuisine_Thai', 'price_difference']
+    )
 
     # Make a prediction
     predicted_demand = model.predict(input_data)[0]
