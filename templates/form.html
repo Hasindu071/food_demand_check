@@ -114,11 +114,11 @@
 
                 <!-- Checkout price input -->
                 <label for="checkoutPrice"> Checkout price:</label>
-                <input type="number" id="checkoutPrice" name="checkoutPrice" placeholder="Enter checkout price">
+                <input type="number" id="checkout_price" name="checkout_price" placeholder="Enter checkout price">
 
                 <!-- Base price input -->
                 <label for="basePrice"> Base price :</label>
-                <input type="number" id="basePrice" name="basePrice" placeholder="Enter base price">
+                <input type="number" id="base_price" name="base_price" placeholder="Enter base price">
 
                 <!-- Emailer for promotion dropdown -->
                 <label for="emailer"> Emailer for Promotion ? </label>
@@ -155,6 +155,15 @@
                 <!-- Predict button -->
                 <button type="submit" class="predict-btn">Predict the demand </button>
             </form>
+            <h1>Food Demand Prediction</h1>
+
+            <!-- Display Prediction -->
+            {% if prediction %}
+                <h2>Predicted Demand: {{ prediction }}</h2>
+            {% else %}
+                <h2>No prediction available.</h2>
+            {% endif %}
+
         </div>
     </div>
 </body>

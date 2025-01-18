@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Load the trained prediction model (ensure the model path is correct)
-model = joblib.load("models/demand_prediction_model.pkl")
+model = joblib.load('models/optimized_xgb_model.pkl')
 
 @app.route('/')
 def index():
@@ -40,20 +40,20 @@ def predict():
 
         # Map the category to binary code
         category_mapping = {
-            "beverages": "0001",
-            "rice bowl": "0010",
-            "starters": "0011",
-            "pasta": "0100",
-            "sandwich": "0101",
-            "biryani": "0110",
-            "extras": "0111",
-            "pizza": "1000",
-            "seafood": "1001",
-            "other snacks": "1010",
-            "desert": "1011",
-            "salad": "1100",
-            "fish": "1101",
-            "soup": "1110"
+            "Beverages": "0001",
+            "Rice Bowl": "0010",
+            "Starters": "0011",
+            "Pasta": "0100",
+            "Sandwich": "0101",
+            "Biryani": "0110",
+            "Extras": "0111",
+            "Pizza": "1000",
+            "Seafood": "1001",
+            "Other Snacks": "1010",
+            "Desert": "1011",
+            "Salad": "1100",
+            "Fish": "1101",
+            "Soup": "1110"
         }
 
         # Get the binary code for the selected category
@@ -66,15 +66,15 @@ def predict():
         category_3 = int(binary_code[3])
 
         # Get the cuisine type
-        Thai = 1 if cuisine.lower() == 'thai' else 0
-        Italian = 1 if cuisine.lower() == 'italian' else 0
-        Indian = 1 if cuisine.lower() == 'indian' else 0
-        Continental = 1 if cuisine.lower() == 'continental' else 0
+        Thai = 1 if cuisine.lower() == 'Thai' else 0
+        Italian = 1 if cuisine.lower() == 'Italian' else 0
+        Indian = 1 if cuisine.lower() == 'Indian' else 0
+        Continental = 1 if cuisine.lower() == 'Continental' else 0
 
         # Get the center type
-        type_A = 1 if center == 'TYPE_A' else 0
-        type_B = 1 if center == 'TYPE_B' else 0
-        type_C = 1 if center == 'TYPE_C' else 0
+        type_A = 1 if center == 'TYPE A' else 0
+        type_B = 1 if center == 'TYPE B' else 0
+        type_C = 1 if center == 'TYPE C' else 0
 
         # Prepare the input data as a DataFrame
         input_data = pd.DataFrame([[
