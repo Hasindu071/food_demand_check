@@ -4,82 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Demand Forecasting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             height: 100%;
+            background: #fafafa;
         }
 
         .container {
             position: relative;
             width: 100%;
             height: 100vh;
-            background-color: #45a049;
-            background-image: url('../static/vegetables.jpg');
-            background-size: cover;
-            background-position: center;
         }
 
-        .background-image {
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 128, 0, 0.8), rgba(0, 0, 0, 0.6));
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
         }
 
         .content {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 20px;
             text-align: center;
-            width: 50%;
-            border-radius: 10px;
+            color: #fff;
+            max-width: 700px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 48px;
             margin-bottom: 20px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         p {
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
         .predict-btn {
-            background-color: #4CAF50;
+            display: inline-block;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
             color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
+            text-transform: uppercase;
+            padding: 12px 25px;
+            border-radius: 50px;
             font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
         }
 
         .predict-btn:hover {
-            background-color: #45a049;
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
-            .content {
-                width: 90%;
+            h1 {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .predict-btn {
+                font-size: 16px;
+                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="background-image">
+        <div class="overlay">
             <div class="content">
                 <h1>Food Demand Forecasting</h1>
-                <p>A food delivery service has to deal with a lot of perishable materials which makes it necessary to accurately forecast and predict food delivery demand both on a daily and weekly basis. If there's extra inventory in the warehouse, there is a risk of wastage and overall loss for the company. On the other hand, if there is less inventory, this could lead to out-of-stock situations and hence customers may resort to competitors for placing meal orders. Raw material is replenished on a weekly basis. Since the raw material is perishable, the procurement planning is extremely important. The task is to predict the food delivery demand for the next ten weeks.</p>
-
-                <!-- Link to the form page -->
-                <a href="/form">
-                    <button class="predict-btn">Predict</button>
-                </a>
+                <p>
+                    Efficiently manage inventory with accurate food delivery demand forecasting.
+                    Avoid wastage or out-of-stock issues by planning for the next ten weeks.
+                    Make informed decisions with our predictive tools.
+                </p>
+                <a href="/form" class="predict-btn">Predict Now</a>
             </div>
         </div>
     </div>
