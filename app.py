@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Load the trained prediction model (ensure the model path is correct)
-model = joblib.load('models/optimized_xgb_model.pkl')
+model = joblib.load('models/demand_prediction_model.pkl')
 
 @app.route('/')
 def index():
